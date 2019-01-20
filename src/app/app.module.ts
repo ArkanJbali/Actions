@@ -9,7 +9,7 @@ import { AddActionComponent } from './add-action/add-action.component';
 import { Component } from '@angular/core';
 import {  HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatTableModule, MatSortModule} from '@angular/material';
+import { MatTableModule, MatSortModule, MatCardModule, MatPaginatorModule} from '@angular/material';
 import {HomePageServiceService} from './Service/home-page.service';
 import { FormsModule } from '@angular/forms';
 
@@ -27,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatSortModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

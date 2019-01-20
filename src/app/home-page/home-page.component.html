@@ -1,50 +1,92 @@
 
 
 
-    <div class="row">
-        <div class="col" align="left">
 
-              </div>
- <div class="col-6" align="center">
+
+        <mat-card>
+          <div>
+              <strong>Action Log</strong>
+          </div>
+ <div align="center">
 
       <mat-table #table [dataSource]="ActionLogData" matSort class='table text-white bg-dark'>
-        <caption>Action Log</caption>
       <ng-container matColumnDef="seqID">
         <mat-header-cell *matHeaderCellDef>seqID</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.seqID}}</mat-cell>
+        <mat-cell *matCellDef="let event">{{event.seqID}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Net.Title">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Net.Title</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.title}}</mat-cell>
+        <mat-cell *matCellDef="let event">{{event.title}}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="Severity">
+      <ng-container matColumnDef="Severity" >
         <mat-header-cell *matHeaderCellDef mat-sort-header>Severity</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.Severity}}</mat-cell>
+        <mat-cell *matCellDef="let event">
+          <span *ngIf= " event.Severity === _Critical "><i class="material-icons" style="color: rgb(238, 53, 53);">
+              error</i></span>
+          <span *ngIf= " event.Severity === _Error "><i class="material-icons" style="color: rgb(15, 248, 170);">
+              notification_important</i></span>
+          <span *ngIf= " event.Severity === _Warning "><i class="material-icons" style="color: rgb(248, 238, 96);">
+                  warning</i></span>
+          {{event.Severity}}
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Description">
         <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.Description}}</mat-cell>
+        <mat-cell *matCellDef="let event">{{event.Description}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="Solution">
         <mat-header-cell *matHeaderCellDef>Solution</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.Solution}}</mat-cell>
+        <mat-cell *matCellDef="let event">{{event.Solution}}</mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
       <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
-    </mat-table>
-    <!-- <mat-paginator [length]="5"
-              [pageSize]="10"
-              [pageSizeOptions]="[1, 2, 3, 4]">
-</mat-paginator> -->
-  </div>
-  <div class="col" align="right">
 
-        </div>
+    </mat-table>
+    <mat-paginator #paginator [pageSize]="3" [pageSizeOptions]="[1, 2, 3]">
+    </mat-paginator>
+
+
+  </div>
+
+</mat-card>
+<br>
+<div class="row">
+<div class="col" align="left">
+    <table class='table text-white bg-dark'>
+      <caption>Action By App</caption>
+      <tr>
+        <th>App Name</th>
+        <th>Action Num</th>
+        <th>Def</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+</div>
+
+  <div class="col" align="right">
+    <table class='table text-white bg-dark'>
+      <caption>Action By Severity</caption>
+      <tr>
+        <th>App Name</th>
+        <th>Action Num</th>
+        <th>Def</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
 </div>
 
 

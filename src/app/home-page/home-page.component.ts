@@ -14,8 +14,10 @@ export class HomePageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   displayedColumns = ['seqID', 'Net.Title', 'Severity', 'Description', 'Solution'];
   ActionLogData;
+  _Critical: String = 'Critical';
+  _Warning: String = 'Warning';
+  _Error: String = 'Error';
   constructor(private homeService: HomePageServiceService) { }
-
   ngOnInit() {
     this.homeService.getActionLog().subscribe(results => {
       if (!results) {

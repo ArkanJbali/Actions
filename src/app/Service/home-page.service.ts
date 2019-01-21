@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {  HttpClient} from '@angular/common/http';
 import { ActionLog } from '../model/HomePage.model';
 import {Observable} from 'rxjs';
+// Dependency Injections its object from another class that inject it
 @Injectable({
   providedIn: 'root'
 })

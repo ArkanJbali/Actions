@@ -28,5 +28,4 @@ export class HomePageComponent implements OnInit {
       this.ActionLogData.paginator = this.paginator;
     });
   }
-
 }

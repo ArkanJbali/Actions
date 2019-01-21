@@ -19,5 +19,13 @@
     "Severity": "Error",
     "Description": "some error",
     "Solution": "sol"
+},
+{
+  "seqID": "4",
+ "title": "Missing parameter",
+  "Severity": "Error",
+  "Description": "some error",
+  "Solution": "sol"
 }
+
 ]

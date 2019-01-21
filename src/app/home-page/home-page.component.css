@@ -16,7 +16,7 @@ div{
   width : auto;
   height : auto;
   }
-  ul {
+  /* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -29,9 +29,9 @@ div{
 
     position: sticky;
     top: 0;
-  }
+  } */
 
-  li {
+  /* li {
     float: left;
   }
 
@@ -72,7 +72,7 @@ div{
 
   .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } */
 
   mat-cell {
     color: white;

@@ -11,17 +11,18 @@
 
 
 
-      <div class="row">
-   <div class="col" align="center">
+      <div class="container">
+   <!-- <div class="col" align="center">
      <table class="table">
         <h2>Event List</h2>
-        <table *ngFor="let event of events" class='table text-white bg-dark'>
         <tr>
-        <th>userid</th>
-        <th>id</th>
-        <th>title</th>
-        <th>body</th>
+            <th>userid</th>
+            <th>id</th>
+            <th>title</th>
+            <th>body</th>
         </tr>
+     </table>
+        <table *ngFor="let event of events" class='table text-white bg-dark'>
         <tr>
         <td>{{event.userId}}</td>
         <td>{{event.id}}</td>
@@ -29,8 +30,72 @@
         <td>{{event.body}}</td>
         </tr>
         </table>
-     </table>
-    </div>
+    </div> -->
+   <mat-card>
+        <div>
+            <strong>Event List</strong>
+        </div>
+    <div align="center">
+        <mat-table #table [dataSource]="events" matSort class='table text-white bg-dark'>
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>id</mat-header-cell>
+          <mat-cell *matCellDef="let e">{{e.id}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="eventName">
+            <mat-header-cell *matHeaderCellDef  mat-sort-header>eventName</mat-header-cell>
+            <mat-cell *matCellDef="let e">{{e.eventName}}</mat-cell>
+          </ng-container>
+        <ng-container matColumnDef="severity">
+          <mat-header-cell *matHeaderCellDef  mat-sort-header>severity</mat-header-cell>
+          <mat-cell *matCellDef="let e">
+              <!-- <span *ngIf= " e.severity === _Critical "><i class="material-icons" style="color: rgb(238, 53, 53);">
+                  error</i></span>
+              <span *ngIf= " e.severity === _Error "><i class="material-icons" style="color: rgb(15, 248, 170);">
+                  notification_important</i></span>
+              <span *ngIf= " e.severity === _Warning "><i class="material-icons" style="color: rgb(248, 238, 96);">
+                      warning</i></span> -->
+            {{e.severity}}
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef>description</mat-header-cell>
+          <mat-cell *matCellDef="let e">{{e.description}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="fixAction">
+            <mat-header-cell *matHeaderCellDef>fixAction</mat-header-cell>
+            <mat-cell *matCellDef="let e">{{e.fixAction}}</mat-cell>
+          </ng-container>
 
+        <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+      </mat-table>
+      <mat-paginator #paginator [pageSize]="3" [pageSizeOptions]="[1, 2, 3]">
+      </mat-paginator>
+    </div>
+  </mat-card> -->
+    <div class="row">
+        <div class="col" align="center">
+          <table class="table">
+             <h2>Event List</h2>
+             <tr>
+                <th>id</th>
+                <th>eventName</th>
+                <th>severity</th>
+                <th>description</th>
+                <th>fixAction</th>
+                </tr>
+             <table *ngFor="let event of events" class='table text-white bg-dark'>
+
+             <tr>
+                 <td>{{event.id}}</td>
+             <td>{{event.eventName}}</td>
+             <td>{{event.severity}}</td>
+             <td>{{event.description}}</td>
+             <td>{{event.fixAction}}</td>
+             </tr>
+             </table>
+          </table>
+         </div>
   </div>
 

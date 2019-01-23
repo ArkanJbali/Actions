@@ -1,3 +1,10 @@
+export interface EventsInstance {
+  id: number;
+  eventName: string;
+  severity: string;
+  description: string;
+  fixAction: string;
+}
 export interface ActionLog {
   seqID: string ;
   title: string ;

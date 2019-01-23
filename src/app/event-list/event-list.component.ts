@@ -1,5 +1,6 @@
 import { EventsService } from './../Service/events.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 
 
   // @Component({
@@ -29,11 +30,25 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./event-list.component.css']
   })
 export class EventListComponent implements OnInit {
-public events = [];
-
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  displayedColumns = ['id', 'eventName', 'severity', 'description', 'fixAction'];
+public events;
+_Critical: String = 'critical';
+_Warning: String = 'Warning';
+_Error: String = 'Error';
   constructor(private eventService: EventsService) { }
   ngOnInit() {
-    this.eventService.getPosts().subscribe(data => this.events = data);
+   // this.eventService.getPosts().subscribe(data => this.events = data);
+   this.eventService.getPosts().subscribe(data => {
+    if (!data) {
+      return;
+    }
+   // this.events = data;
+    this.events = new MatTableDataSource(data);
+    this.events.sort = this.sort;
+    this.paginator = this.paginator;
+  });
   }
 
 }

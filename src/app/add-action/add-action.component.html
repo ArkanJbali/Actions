@@ -1,3 +1,66 @@
-<p>
-  add-action works!!
-</p>
+<div align="center">
+  <p>Event Defention</p>
+</div>
+<br/> <br/>
+  <p class="form-group">
+      <label for="application"> Application: </label>
+        <select id="application" name="application"  [(ngModel)]="application" calss="from-control">
+          <option value=1>BLM1</option>
+          <option value=2>BLM2</option>
+          <option value=3>CLM1</option>
+          <option value=4>CLM2</option>
+        </select>
+  </p>
+  <br/>
+  <p class="form-group">
+      <label for="defectseverity">
+        Defect Severity :
+        </label>
+        <select id="defectseverity" name="defectseverity"  [(ngModel)]="defectseverity" calss="from-control">
+          <option value=1>IconC</option>
+          <option value=2>IconE</option>
+          <option value=3>IconW</option>
+
+        </select>
+  </p>
+  <br/>
+  <p class="form-group">
+      <label >
+        Comperator : </label><label>
+          <input type="radio" value="Greate Than"> Greate Than
+          <input type="radio" value="Lower Than "> Lower Than
+          <input type="radio" value="Equal to "> Equal to
+         </label>
+
+      <br/>
+      <p class="form-group">
+          <label type="textbox" >
+            Number of occurance (%): <p class="from-control">
+              <label>
+              <input type="number" min="0" max="100" value="1" step="1" ondrop="ruturn false;" onpaste="ruturn false;" >
+              </label>
+          </p>
+          <br/>
+  <p class="form-group">
+      <label for="actionseverity">
+        Action Severity:
+        </label>
+        <select id="actionseverity" name="actionseverity"  [(ngModel)]="actionseverity" calss="from-control">
+          <option value=1>Critical</option>
+          <option value=2>Error</option>
+          <option value=3>Warning</option>
+
+        </select>
+  </p>
+  <br/>
+  <p class="form-group">
+      <label for="actionselection">
+        Action Selection:
+        </label>
+        <select id="actionselection" name="actionselection"  [(ngModel)]="actionselection" calss="from-control">
+          <option value=1>1</option>
+          <option value=2>2</option>
+          <option value=3>3</option>
+          <option value=3>4</option>
+        </select>
+  </p>

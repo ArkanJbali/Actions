@@ -17,15 +17,25 @@ export class HomePageComponent implements OnInit {
   _Critical: String = 'Critical';
   _Warning: String = 'Warning';
   _Error: String = 'Error';
+  public events;
   constructor(private homeService: HomePageServiceService) { }
   ngOnInit() {
-    this.homeService.getActionLog().subscribe(results => {
-      if (!results) {
+    // this.homeService.getActionLog().subscribe(results => {
+    //   if (!results) {
+    //     return;
+    //   }
+    //   this.ActionLogData = new MatTableDataSource(results);
+    //   this.ActionLogData.sort = this.sort;
+    //   this.ActionLogData.paginator = this.paginator;
+    // });
+    this.homeService.getPosts().subscribe(data => {
+      if (!data) {
         return;
       }
-      this.ActionLogData = new MatTableDataSource(results);
-      this.ActionLogData.sort = this.sort;
-      this.ActionLogData.paginator = this.paginator;
+     // this.events = data;
+      this.events = new MatTableDataSource(data);
+      this.events.sort = this.sort;
+      this.paginator = this.paginator;
     });
   }
 }

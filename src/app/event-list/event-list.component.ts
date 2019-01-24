@@ -47,7 +47,7 @@ _Error: String = 'Error';
    // this.events = data;
     this.events = new MatTableDataSource(data);
     this.events.sort = this.sort;
-    this.paginator = this.paginator;
+    this.events.paginator = this.paginator;
   });
   }
 

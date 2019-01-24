@@ -1,19 +1,19 @@
-/*  
- *@Author Arkan Jbali 
+/*
+ *@Author Arkan Jbali
  *
  */
 
 function showDate(){
 var d = new Date();
-var s=(d.getMonth() + 1)+"/"+d.getDate()+"/"+d.getFullYear();
+var s=+d.getDate()+"/"+(d.getMonth() + 1)+"/"+d.getFullYear();
 //document.getElementById('date').innerHTML = s;
 document.getElementById('date2').innerHTML = s;
-MiddleT();
-ByApp();
-BySev();
-z();
-vertical();
-showWeekly()
+// MiddleT();
+// ByApp();
+// BySev();
+// z();
+// vertical();
+// showWeekly()
 }
 Chart.defaults.global.defaultFontColor = 'white';
 var config = {
@@ -57,7 +57,7 @@ var config = {
 		var ctx = document.getElementById('chart-area').getContext('2d');
 		window.myPie = new Chart(ctx, config);
 	};
-	
+
 
 actions=[
 	{SeqID:1,Title:"zDB connection",Severity:"iconC",Description:"some error",Solution:"sol"},
@@ -214,12 +214,12 @@ actions=[
 							display: true,
 							text: 'Actions By App, by Severity'
 						},
-						
+
 					}
 				});
-				
-			};	
-			
+
+			};
+
 function showWeekly(){
 	 // Return with commas in between
 	  var numberWithCommas = function(x) {
@@ -228,7 +228,7 @@ function showWeekly(){
 
 	var dataPack1 = [1000, 22000, 26000, 35000, 55000, 55000, 56000, 59000, 60000, 61000, 60100, 62000];
 	var dataPack2 = [20000, 1200, 1300, 1400, 1060, 2030, 2070, 4000, 4100, 4020, 4030, 4050];
-	var dates = ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6", 
+	var dates = ["May 1", "May 2", "May 3", "May 4", "May 5", "May 6",
 	  				 "May 7", "May 8", "May 9", "May 10", "May 11", "May 12"];
 
 	// Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
@@ -260,27 +260,27 @@ function showWeekly(){
 	    options: {
 	     		animation: {
 	        	duration: 10,
-	        	
-	        	
+
+
 	        },
 	        tooltips: {
 						mode: 'label',
 	          callbacks: {
-	          label: function(tooltipItem, data) { 
+	          label: function(tooltipItem, data) {
 	          	return data.datasets[tooltipItem.datasetIndex].label + ": " + numberWithCommas(tooltipItem.yLabel);
 	          }
 	          }
 	         },
 	        scales: {
-	          xAxes: [{ 
-	          	stacked: true, 
+	          xAxes: [{
+	          	stacked: true,
 	            gridLines: { display: false },
 	            }],
-	          yAxes: [{ 
-	          	stacked: true, 
+	          yAxes: [{
+	          	stacked: true,
 	            ticks: {
 	        			callback: function(value) { return numberWithCommas(value); },
-	     				}, 
+	     				},
 	            }],
 	        }, // scales
 	        legend: {display: true},
@@ -289,7 +289,7 @@ function showWeekly(){
 		        display: true,
 		        text: 'Weekly view of actions by Severity'
 		      }
-	        
+
 	    } // options
 	   }
 	);

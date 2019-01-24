@@ -1,9 +1,9 @@
-import { EventsInstance } from './../Model/HomePage.model';
+import { EventsInstance } from './../Model/EventsList.model';
 import { Observable } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Events } from '../model/EventsList.model';
+
 
 
 @Injectable({

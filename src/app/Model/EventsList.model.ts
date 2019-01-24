@@ -1,9 +1,4 @@
-export interface Events {
-  userId: number ;
-  id: number;
-  title: string ;
-  body: string ;
-}
+
 export interface EventsInstance {
   id: number;
   eventName: string;
@@ -11,3 +6,11 @@ export interface EventsInstance {
   description: string;
   fixAction: string;
 }
+
+// export interface Events {
+//   userId: number ;
+//   id: number;
+//   title: string ;
+//   body: string ;
+// }
+

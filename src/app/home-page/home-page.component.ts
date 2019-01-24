@@ -20,22 +20,13 @@ export class HomePageComponent implements OnInit {
   public events;
   constructor(private homeService: HomePageServiceService) { }
   ngOnInit() {
-    // this.homeService.getActionLog().subscribe(results => {
-    //   if (!results) {
-    //     return;
-    //   }
-    //   this.ActionLogData = new MatTableDataSource(results);
-    //   this.ActionLogData.sort = this.sort;
-    //   this.ActionLogData.paginator = this.paginator;
-    // });
-    this.homeService.getPosts().subscribe(data => {
-      if (!data) {
+    this.homeService.getActionLog().subscribe(results => {
+      if (!results) {
         return;
       }
-     // this.events = data;
-      this.events = new MatTableDataSource(data);
-      this.events.sort = this.sort;
-      this.paginator = this.paginator;
+      this.ActionLogData = new MatTableDataSource(results);
+      this.ActionLogData.sort = this.sort;
+      this.ActionLogData.paginator = this.paginator;
     });
   }
 }

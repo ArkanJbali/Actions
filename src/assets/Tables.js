@@ -15,7 +15,7 @@ document.getElementById('date2').innerHTML = s;
 // vertical();
 // showWeekly()
 }
-Chart.defaults.global.defaultFontColor = 'white';
+// Chart.defaults.global.defaultFontColor = 'white';
 var config = {
 		type: 'pie',
 		data: {

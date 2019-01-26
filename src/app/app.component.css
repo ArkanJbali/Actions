@@ -3,11 +3,12 @@
  *
  */
 
- div{
+ /* div{
   position: relative;
   left: auto;
   top: auto;
-  }
+  display: inline-block;
+  } */
 
   .chart1{
   clear : none;
@@ -16,11 +17,10 @@
   width : auto;
   height : auto;
   }
-  ul {
+  .ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: yellow;
   background: #FFC04F;
   background: -moz-linear-gradient(-45deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
@@ -69,7 +69,9 @@
   }
 
   .dropdown-content a:hover {background-color: #f1f1f1}
-
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
   .dropdown:hover .dropdown-content {
     display: block;
   }

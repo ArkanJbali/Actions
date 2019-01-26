@@ -1,7 +1,7 @@
 import { ChartsModule } from 'ng2-charts';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -14,15 +14,15 @@ import { MatTableModule, MatSortModule, MatCardModule, MatPaginatorModule} from 
 import {HomePageServiceService} from './Service/home-page.service';
 import { FormsModule } from '@angular/forms';
 import { ChartsComponent } from './charts/charts.component';
-
-
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     EventListComponent,
     AddActionComponent,
-    ChartsComponent
+    ChartsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,8 @@ import { ChartsComponent } from './charts/charts.component';
     FormsModule,
     MatCardModule,
     MatPaginatorModule,
-    ChartsModule
+    ChartsModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

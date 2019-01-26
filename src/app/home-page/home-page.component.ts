@@ -1,8 +1,5 @@
-import { ActionLog } from './../Model/HomePage.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { MatSort, MatSortable, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 import {HomePageServiceService} from '../Service/home-page.service';
 @Component({
   selector: 'app-home-page',
@@ -12,15 +9,18 @@ import {HomePageServiceService} from '../Service/home-page.service';
 export class HomePageComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns = ['seqID', 'Net.Title', 'Severity', 'Description', 'Solution'];
+  @ViewChild(MatPaginator) paginator2: MatPaginator;
+  displayedColumns = ['id', 'eventName', 'severity', 'description', 'Solution'];
+  displayedColumns2 = ['App Name', 'Action Num', 'Def'];
   ActionLogData;
-  _Critical: String = 'Critical';
+  byAppData;
+  bySevData;
+  _Critical: String = 'critical';
   _Warning: String = 'Warning';
   _Error: String = 'Error';
-  public events;
   constructor(private homeService: HomePageServiceService) { }
   ngOnInit() {
-    this.homeService.getActionLog().subscribe(results => {
+    this.homeService.getPosts().subscribe(results => {
       if (!results) {
         return;
       }
@@ -28,5 +28,22 @@ export class HomePageComponent implements OnInit {
       this.ActionLogData.sort = this.sort;
       this.ActionLogData.paginator = this.paginator;
     });
+    this.homeService.getApp().subscribe(results2 => {
+      if (!results2) {
+        return;
+      }
+      this.byAppData = new MatTableDataSource(results2);
+      this.byAppData.sort = this.sort;
+      this.byAppData.paginator2 = this.paginator2;
+    });
+    this.homeService.getSev().subscribe(results3 => {
+      if (!results3) {
+        return;
+      }
+      this.bySevData = new MatTableDataSource(results3);
+      this.bySevData.sort = this.sort;
+      this.bySevData.paginator = this.paginator;
+    });
+
   }
 }

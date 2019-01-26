@@ -18,11 +18,11 @@ if (env === 'production') {
   app.use(forceSSL);
 }
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + './dist/action'));
+app.use(express.static(__dirname + './dist/Action'));
 
 app.get('/*', function(req,res) {
 
-res.sendFile(path.join(__dirname+'/dist/action/index.html'));
+res.sendFile(path.join(__dirname+'/dist/Action/index.html'));
 });
 
 // Start the app by listening on the default Heroku port

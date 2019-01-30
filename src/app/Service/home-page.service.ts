@@ -1,7 +1,7 @@
 import { EventsInstance } from './../Model/EventsList.model';
 import { Injectable } from '@angular/core';
 import {  HttpClient} from '@angular/common/http';
-import { ActionsByApp, ActionsBySeverity} from '../model/HomePage.model';
+import { ActionsByApp, ActionsBySeverity} from '../Model/HomePage.model';
 import {Observable} from 'rxjs';
 // Dependency Injections its object from another class that inject it
 @Injectable({

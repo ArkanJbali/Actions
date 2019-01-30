@@ -33,5 +33,9 @@ div{
     font-size: 16px;
     font-style: italic;
   }
+  mat-paginator{
+    position: relative;
+    left: auto;
+  }
 
 

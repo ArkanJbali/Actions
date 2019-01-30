@@ -6,7 +6,6 @@
     "start": "node server.js",
     "build": "ng build",
     "postinstall": "ng build --prod",
-    "preinstall": "npm install -g @angular/cli @angular/compiler-cli typescript",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
